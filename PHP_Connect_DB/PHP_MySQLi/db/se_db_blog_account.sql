@@ -1,0 +1,2 @@
+INSERT INTO se_db_blog.account (id, username, password, display_name) VALUES (1, 'admin', 'admin', 'admin');
+INSERT INTO se_db_blog.account (id, username, password, display_name) VALUES (2, 'user', '123', 'user');
