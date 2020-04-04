@@ -33,9 +33,27 @@
                 echo "attribute and keyName are not exist<br />";
         }
 
-        public function add($beast)
+        public function addBeast($beast)
         {
-            $this->arrBeast[] = $beast;
+            if (is_array($beast))
+            {
+                foreach($beast as $key=>$value)
+                {
+                    if (is_a($value, "Beast")) //check có phải là đối tượng beast hay không?
+                        $this->arrBeast = $value;
+                    else
+                        echo "Element is [$key]. It isn't a beast. <br/>";
+                }
+            }              
+            else
+            {
+                if (is_a($beast, "Beast"))
+                    $this->arrBeast[] = $beast;
+                else
+                    echo "It isn't a beast <br/>"; 
+
+            }
+                 
         }
 
         public function total($keyName = "eat", $id = "")
