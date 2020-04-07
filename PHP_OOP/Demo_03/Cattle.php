@@ -1,27 +1,18 @@
 <?php
-namespace Farm {
-    abstract class Cattle {
+namespace Farm;
+include_once("Activity.php");
+
+    abstract class Cattle { //Gia suc
         private $id; 
         private $name;
         private $gender;
-        // public static $milkProducedS = 0;
-        // public static $grassEatedS = 0;
-        // public static $numOfBornS = 0;
-        // public static $cattleCount = 0;
+        private $activityDiary = array();
 
         public function __construct($id = 0, $name = "", $gender = true) 
         {
             $this->id = $id; 
             $this->name = $name;
             $this->gender = $gender;
-            // if($this->gender){
-            //     Cattle::milkProducedS = 0;
-            //     Cattle::numOfBorn = 0;
-            // } else {
-            //     Cattle::__unset("milkProducedS");
-            //     Cattle::__unset("numOfBornS");
-            // }
-            // Cattle::$cattleCount++;
         }
 
         public function __destruct()
@@ -53,7 +44,7 @@ namespace Farm {
         }
 
         public function getInfo(){
-            echo "--------------<br \>";
+            echo "***************<br \>";
             echo "Id: ".$this->id."<br \>";
             echo "Name: ".$this->name."<br \>";
             if($this->gender){
@@ -63,25 +54,36 @@ namespace Farm {
             }
         }
 
+        public function showActivityDiary(){
+            $this->getInfo();
+            echo "------Activities------<br>";
+            if(isset($this->activityDiary)){
+                foreach($this->activityDiary as $diary){
+                    $diary->showActivityDetail();
+                }
+            } else {
+                echo "<div>No-diary recoded.</div>";
+            }
+            
+        }
+
+        public function addActivityDiary($activity){
+            if(isset($activity)){
+                $this->activityDiary[] = $activity;
+            } else {
+                echo "Null";
+            }
+        }
+
         abstract public function makeSound();
-        // {
-        //     echo "<div>No-sound</div>";
-        // }
 
         abstract public function eatGrass();
-        // {
-        //     echo "<div>Eat-Grass</div>";
-        // }
 
         abstract public function produceMilk();
-        // {
-        //     echo "<div>Produce-Milk</div>";
-        // }
 
         abstract public function giveBirth();
 
-        abstract static public function getStatistic();
+        abstract static public function getStatistic(); //Thống kê theo từng loài
         
     }    
-}
 ?>
