@@ -57,7 +57,7 @@
         }
 
         public function produceMilk(){
-            if(parent::__get("gender")){
+            if(parent::__get("gender") == "Female"){
                 $milkProduced = new Activity("produceMilk", rand(3,6));
                 parent::addActivityDiary($milkProduced);
                 Sheep::$milkProducedS += $milkProduced->quantity;
@@ -68,7 +68,7 @@
         }
 
         public function giveBirth(){
-            if(parent::__get("gender")){
+            if(parent::__get("gender") == "Female"){
                 $numOfBorn = new Activity("giveBirth", rand(1,3));
                 parent::addActivityDiary($numOfBorn);
                 Sheep::$numOfBornS += $numOfBorn->quantity;

@@ -9,11 +9,11 @@
     function main(){
         $cattles = [
             new Cow(1, "Cow1"),
-            new Cow(2, "Cow2", false),
-            new Sheep(3, "Sheep1",),
-            new Sheep(4, "Sheep2", false),
+            new Cow(2, "Cow2", "Female"),
+            new Sheep(3, "Sheep1"),
+            new Sheep(4, "Sheep2", "Female"),
             new Goat(5, "Goat1"),
-            New Goat(6, "Goat2", false)
+            New Goat(6, "Goat2", "Female")
         ];
 
         farmHungry($cattles);
@@ -41,6 +41,7 @@
         }
     }
     function getStatictic(){
+        
         Cow::getStatistic();
         Sheep::getStatistic();
         Goat::getStatistic();

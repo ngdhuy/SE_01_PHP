@@ -8,7 +8,7 @@ include_once("Activity.php");
         private $gender;
         private $activityDiary = array();
 
-        public function __construct($id = 0, $name = "", $gender = true) 
+        public function __construct($id = 0, $name = "", $gender = "Female")
         {
             $this->id = $id; 
             $this->name = $name;
@@ -47,11 +47,7 @@ include_once("Activity.php");
             echo "***************<br \>";
             echo "Id: ".$this->id."<br \>";
             echo "Name: ".$this->name."<br \>";
-            if($this->gender){
-                echo "Gender: Female<br \>";
-                } else {
-                    echo "Gender: Male<br \>";
-            }
+            echo "Gender:".$this->gender."<br \>";
         }
 
         public function showActivityDiary(){
