@@ -48,8 +48,5 @@
         $f->beastInformation();
         // $f->makeHungrySound();
     }
-    echo $farm->total();
-   
-    
-    
+    echo $farm->total();    
 ?>
