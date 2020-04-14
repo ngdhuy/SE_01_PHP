@@ -1,0 +1,24 @@
+body {
+    margin: 0 auto;
+}
+
+.navbar, .footer {
+    background-color: #563D7C;
+    color: #fff;
+}
+
+.navbar a, .footer a{
+    color: #fff;
+}
+
+.content {
+    min-height: 700px;
+    margin: 10px auto 160px auto;
+}
+
+.footer {
+    height: 150px;
+    line-height: 150px;
+    bottom: 0;
+    position: fixed;
+}
