@@ -8,10 +8,16 @@
     {
         case 1:
             $errorMessege = "404 - Page not found";
-        break;
+            break;
         case 2:
             $errorMessege = "Username or password is not exists";
-        break;
+            break;
+        case 3:
+            $errorMessege = "User name is existed";
+            break;
+        case 4:
+            $errorMessege = "Cannot create new account. Please, try again later!";
+            break;
         default:
             $errorMessege = "404 - Page not found";
     }

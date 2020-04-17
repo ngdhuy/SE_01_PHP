@@ -32,24 +32,27 @@
             {
                 case 1:
                     $page = "./pages/index.php";
-                break;
+                    break;
                 case 2:
                     $page = "./pages/login/uiLogin.php";
-                break;
+                    break;
                 case 3:
                     $page = "./pages/login/uiRegister.php";
-                break;
+                    break;
+                case 5:
+                    $page = "./pages/post/index.php";
+                    break;
 
                 ///--- Execute function
                 case 102:
                     $page = "./pages/login/exLogin.php";
-                break;
+                    break;
                 case 103:
                     $page = "./pages/login/exRegister.php";
-                break;
+                    break;
                 case 104:
                     $page = "./pages/login/exLogout.php";
-                break;
+                    break;
 
                 default:
                     $page = "./pages/error.php";

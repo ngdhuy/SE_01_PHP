@@ -8,7 +8,7 @@
         $account->login($us, $pw);
         
         if($account->errorID === 0)
-            header('location:index.php');
+            header('location:index.php?action=5');
         else
             header("location:index.php?action=404&id=$account->errorID");
 

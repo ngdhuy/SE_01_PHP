@@ -46,6 +46,8 @@
                     $this->is_active = $object->is_active;
 
                     $_SESSION['account'] = serialize($this);
+                    
+                    $this->errorID = 0;
                 }
                 else 
                 {
@@ -55,6 +57,50 @@
             }
 
             unset($db);
+        }
+
+        public function register()
+        {
+            if($this->isExist($this->username))
+            {
+                $this->errorID = 3;
+                return false;
+            }
+            else
+            {
+                $db = new Database();
+
+                $sql = "INSERT INTO account(username, password, display_name, email) VALUES(:username, :password, :display_name, :email)";
+                $db->query($sql);
+                $db->bind("username", $this->username);
+                $db->bind("password", password_hash($this->password, PASSWORD_DEFAULT));
+                $db->bind("display_name", $this->display_name);
+                $db->bind("email", $this->email);
+
+                $db->execute();
+                unset($db);
+
+                $this->login($this->username, $this->password);
+                $this->errorID = ($this->errorID != 0) ? 4 : 0;
+                return $this->errorID == 0;
+            }
+        }
+
+        public function isExist($us)
+        {
+            $db = new Database();
+            $sql = "SELECT acc_id FROM account WHERE username = :username";
+            $db->query($sql);
+            $db->bind("username", $us);
+            $db->execute();
+            $flag = false;
+            
+            if($db->rowCount() == 0)
+                $flag = false;
+            else
+                $flag = true;
+            unset($db);
+            return $flag;
         }
     }
 ?>
