@@ -18,6 +18,12 @@
         case 4:
             $errorMessege = "Cannot create new account. Please, try again later!";
             break;
+        case 5:
+            $errorMessege = "Cannot create new Post. Please, try again later!";
+            break;
+        case 6:
+            $errorMessege = "Cannot create new Comment. Please, try again later!";
+            break;
         default:
             $errorMessege = "404 - Page not found";
     }

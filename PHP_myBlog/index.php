@@ -42,6 +42,12 @@
                 case 5:
                     $page = "./pages/post/index.php";
                     break;
+                case 6:
+                    $page = "./pages/post/exCreatePost.php";
+                    break;
+                case 7:
+                    $page = "./pages/comment/exCreateComment.php";
+                    break;
 
                 ///--- Execute function
                 case 102:
