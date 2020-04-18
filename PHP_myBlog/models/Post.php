@@ -1,4 +1,5 @@
 <?php 
+    //include("C:/xampp/htdocs/SE_01_PHP/PHP_myBlog/helper/Database.php");
     class Post
     {
         private $post_id; 
@@ -36,6 +37,36 @@
                 $listOfPost[] = $post;
             }
             return $listOfPost;
+        }
+
+        public function comments(){
+            $db = new Database(); 
+            
+            $sql[] = "SELECT c.*, a.*";
+            $sql[] = 'FROM comment as c, account as a';
+            $sql[] = 'WHERE c.acc_id = a.acc_id';
+            $sql[] = "AND post_id = :post_id";
+            $sql[] = "ORDER BY `comment_id`,'DESC' ";
+            $sql = implode(" ", $sql);
+            $db->query($sql);
+            $db->bind("post_id", $this->post_id);
+            $objects = $db->resultObjects();
+
+            $list = [];
+            foreach($objects as $obj)
+            {
+                $item = new Comment();
+                $item->comment_id = $obj->comment_id;
+                $item->comment_content = $obj->comment_content;
+                $item->post_id = $obj->post_id;
+                $item->acc_id = $obj->acc_id;
+                $item->created_at = $obj->created_at;
+                $item->account_name = $obj->username;
+
+                $list[] = $item;
+            }
+           
+            return $list;
         }
     }
 ?>

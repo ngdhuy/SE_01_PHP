@@ -17,8 +17,19 @@ body {
 }
 
 .footer {
-    height: 150px;
-    line-height: 150px;
+    height: 70px;
+    line-height: 70px;
     bottom: 0;
     position: fixed;
+}
+
+p.mb-1.txt_font13{
+    font-size: 13px;
+}
+h5.mb-1.txt_font15{
+    font-size: 15px;
+    color: green;
+}
+.cmt{
+    padding: 10px 0 0 2px;
 }
