@@ -4,7 +4,7 @@ class Database
     private $db_host = "localhost";
     private $db_name = "se_db_blog";
     private $db_user = "root";
-    private $db_pass = "root";
+    private $db_pass = "";
     private $db_port = "3306";
 
     private $connect;
@@ -39,7 +39,6 @@ class Database
         if($this->open())
         {
             $result = mysqli_query($this->connect, $sql);
-            $this->close();
             return $result;
         }
         else 
@@ -47,4 +46,11 @@ class Database
             return null;
         }
     }
+
+    public function insertID(){
+        $last_id = mysqli_insert_id($this->connect);
+        return $last_id;
+    }
+
+
 }
