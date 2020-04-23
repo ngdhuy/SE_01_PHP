@@ -1,5 +1,7 @@
 <?php
 namespace Helpers;
+use PDO;
+use PDOException;
 
 class Database {
     private $db_host = DB_HOST;

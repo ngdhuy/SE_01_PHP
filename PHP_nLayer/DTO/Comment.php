@@ -1,11 +1,11 @@
 <?php
 namespace DTO; 
 class Comment{
-    private $comment_id; 
+    private $comment_id;
     private $post_id;
-    private $acc_id; 
-    private $comment_content; 
-    private $created_at; 
+    private $acc_id;
+    private $comment_content;
+    private $created_at;
     private $updated_at;
 
     public function __construct (){}
