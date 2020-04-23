@@ -13,9 +13,12 @@ class AccountDAO extends Database {
     }
 
     public function getAll(){
-        $query = "SELECT acc_id, username, password, email, diplay_name, is_active, created_at, updated_at FROM account";
+        $query = "SELECT acc_id, username, password, email, display_name, is_active, created_at, updated_at FROM account";
         $this->query($query);
         $objects = $this->resultObjects();
+
+        if($objects == null || $this->rowCount() === 0)
+            return null;
         
         $accounts = [];
         foreach($objects as $obj)
@@ -29,20 +32,20 @@ class AccountDAO extends Database {
             $acc->is_active = $obj->is_active;
             $acc->created_at = $obj->created_at; 
             $acc->updated_at = $obj->updated_at;
-
+            var_dump($acc);
+            echo "<hr />";
             $accounts[] = $acc;
         }
-
         return $accounts;
     }
 
     public function getByID($id) {
-        $query = "SELECT acc_id, username, password, email, diplay_name, is_active, created_at, updated_at FROM account WHERE acc_id = :acc_id";
-        $this->bind("acc_id", $id);
+        $query = "SELECT acc_id, username, password, email, display_name, is_active, created_at, updated_at FROM account WHERE acc_id = :acc_id";
         $this->query($query);
+        $this->bind("acc_id", $id);
         $obj = $this->single();
 
-        if($obj == null || $this->rowCount === 0)
+        if($obj == null || $this->rowCount() === 0)
             return null;
 
         $acc = new Account();
@@ -59,14 +62,37 @@ class AccountDAO extends Database {
     }
 
     public function Insert($account) {
-        return true;
+        $query = "INSERT INTO `account`(`username`, `password`, `display_name`, `email`, `is_active`) VALUES (:username, :password, :display_name, :email, :is_active)";
+        $this->query($query);
+        $this->bind("username", $account->username);
+        $this->bind("password", $account->password);
+        $this->bind("display_name", $account->display_name);
+        $this->bind("email", $account->email);
+        $this->bind("is_active", $account->is_active);
+
+        return $this->execute();
     }
 
     public function Update($account) {
-        return true;
+        $query = "UPDATE `account` SET `username`= :username,`password`= :password,`display_name`= :display_name,`email`= :email,`is_active`= :is_active, `created_at`= :created_at WHERE acc_id = :acc_id";
+        $this->query($query);
+        $this->bind("username", $account->username);
+        $this->bind("password", $account->password);
+        $this->bind("display_name", $account->display_name);
+        $this->bind("email", $account->email);
+        $this->bind("is_active", $account->is_active);
+        $this->bind("created_at", $account->created_at);
+        $this->bind("acc_id", $account->acc_id);
+
+        return $this->execute();
     }
 
     public function Delete($account) {
-        
+        $query = "DELETE FROM `account` WHERE acc_id = :account_id";
+
+        $this->query($query);
+        $this->bind("account_id", $account->acc_id);
+
+        return $this->execute();
     }
 }

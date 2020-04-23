@@ -10,7 +10,16 @@ class Account {
     private $created_at; 
     private $updated_at;
 
-    public function __construct(){}
+    public function __construct(){
+        $this->acc_id = 0; 
+        $this->username = ""; 
+        $this->password = "";
+        $this->email = "";
+        $this->display_name = "";
+        $this->is_active = true; 
+        $this->created_at = ""; 
+        $this->updated_at = "";
+    }
 
     public function __set($name, $value) {
         if(isset($this->$name))
