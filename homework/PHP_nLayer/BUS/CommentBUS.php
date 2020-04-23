@@ -1,0 +1,46 @@
+<?php 
+namespace BUS;
+
+use DAO\AccountDAO;
+use DAO\CommentDAO;
+use DAO\PostDAO;
+
+class CommentBUS {
+    private $commentDAO;
+    
+    public function __construct(){
+        $this->commentDAO = new CommentDAO();
+    }
+
+    public function __destruct(){
+        unset($this->commentDAO);
+    }
+
+    public function getAll(){
+        return $this->commentDAO->getAll();
+    }
+
+
+    public function getByID($id) {
+        return $this->commentDAO->getByID($id);
+    }
+
+    public function getByPostID($post_id) {
+        return $this->commentDAO->getByID($post_id);
+    }
+
+    public function Insert($comment) {
+        return $this->commentDAO->Insert($comment);
+    }
+
+    public function Update($comment) {
+        return $this->commentDAO->Update($comment);
+    }
+
+    public function Delete($comment) {
+        return $this->commentDAO->Delete($comment);
+    }
+
+    
+
+}
