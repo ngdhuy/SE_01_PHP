@@ -3,16 +3,14 @@ namespace Helpers;
 use PDO;
 use PDOException;
 
-use PDO;
-use PDOException;
-use Config\Configuration;
+use Config\DB_Config;
 
 class Database {
-    private $db_host = Configuration::SYS['DB_HOST'];
-    private $db_name = Configuration::SYS['DB_NAME'];
-    private $db_user = Configuration::SYS['DB_USER'];
-    private $db_pass = Configuration::SYS['DB_PASS'];
-    private $db_port = Configuration::SYS['DB_PORT'];
+    private $db_name = DB_Config::DB_NAME;
+    private $db_host = DB_Config::DB_HOST;
+    private $db_user = DB_Config::DB_USER;
+    private $db_pass = DB_Config::DB_PASS;
+    private $db_port = DB_Config::DB_PORT;
 
 
     private $connect;

@@ -1,16 +1,22 @@
 <?php 
-    function autoloader($class) {
-        $root = './';
-        $prefix = '.\\';
+    // function autoloader($class) {
+    //     $root = './';
+    //     $prefix = '.\\';
 
-        $classWithoutPrefix = preg_replace('/^'.preg_quote($prefix).'/', '', $class);
-        $file = str_replace('\\', DIRECTORY_SEPARATOR, $classWithoutPrefix).'.php';
+    //     $classWithoutPrefix = preg_replace('/^'.preg_quote($prefix).'/', '', $class);
+    //     $file = str_replace('\\', DIRECTORY_SEPARATOR, $classWithoutPrefix).'.php';
+    //     $path = $root.$file;
+    //     if(file_exists($path)) {
+    //         require_once $path;
+    //     }
+    // }
 
-        $path = $root.$file;
+    function autoloader($class){
+        $path = ".\\".$class.".php";
         if(file_exists($path)) {
             require_once $path;
         }
     }
 
     spl_autoload_register('autoloader');
-?>
+?> 
