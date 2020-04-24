@@ -13,7 +13,7 @@ class AccountDAO extends Database {
     }
 
     public function getAll(){
-        $query = "SELECT acc_id, username, password, email, diplay_name, is_active, created_at, updated_at FROM account";
+        $query = "SELECT acc_id, username, password, email, display_name, is_active, created_at, updated_at FROM account";
         $this->query($query);
         $objects = $this->resultObjects();
 
@@ -32,15 +32,15 @@ class AccountDAO extends Database {
             $acc->is_active = $obj->is_active;
             $acc->created_at = $obj->created_at; 
             $acc->updated_at = $obj->updated_at;
-
+            var_dump($acc);
+            echo "<hr />";
             $accounts[] = $acc;
         }
-
         return $accounts;
     }
 
     public function getByID($id) {
-        $query = "SELECT acc_id, username, password, email, diplay_name, is_active, created_at, updated_at FROM account WHERE acc_id = :acc_id";
+        $query = "SELECT acc_id, username, password, email, display_name, is_active, created_at, updated_at FROM account WHERE acc_id = :acc_id";
         $this->query($query);
         $this->bind("acc_id", $id);
         $obj = $this->single();
