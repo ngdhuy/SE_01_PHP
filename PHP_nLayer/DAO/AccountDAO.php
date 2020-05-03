@@ -95,4 +95,27 @@ class AccountDAO extends Database {
 
         return $this->execute();
     }
+
+    public function checkAccountExist($username) {
+        $query = "SElECT acc_id, username, password, display_name, email, is_active, created_at, updated_at FROM account WHERE username = :username";
+        $this->query($query);
+        $this->bind("username", $username);
+
+        $object = $this->single();
+        if($object == null)
+            return null;
+        else {
+            $account = new Account();
+            $account->acc_id = $object->acc_id;
+            $account->username = $object->username;
+            $account->password = $object->password;
+            $account->display_name = $object->display_name;
+            $account->email = $object->email;
+            $account->is_active = $object->is_active;
+            $account->created_at = $object->created_at;
+            $account->updated_at = $object->updated_at;
+
+            return $account;
+        }
+    }
 }

@@ -50,4 +50,16 @@ class AccountBUS {
         $commentDAO = new CommentDAO();
         return count($commentDAO->getAll());
     }
+
+    public function login($username, $password){
+        $account = $this->accountDAO->checkAccountExist($username);
+        if($account == null)
+            return null;
+        else {
+            if(password_verify($password, $account->password))
+                return $account;
+            else
+                return null;
+        }
+    }
 }
