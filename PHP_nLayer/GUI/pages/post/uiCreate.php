@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
         <p class="card-text">
-        <form action="index.php?pages=3&action=2" method="post">
+        <form action="index.php?page=3&action=2" method="post">
             <div class="form-group float-left">
                 <textarea name="post_content" class="form-control" id="exampleFormControlTextarea1" cols="115" rows="3"
                     placeholder="Input post content" required></textarea>

@@ -14,6 +14,9 @@
         case 3:
             include("./GUI/pages/post/index.php");
             break;
+        case 4:
+            include("./GUI/pages/comment/index.php");
+            break;
         default:
             include("./GUI/pages/error/index.php");
     }
