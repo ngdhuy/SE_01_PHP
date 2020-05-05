@@ -2,7 +2,7 @@
     <h1 class="display-3">Register</h1>
     <p class="lead">Register new account to MyBlog system</p>
     <hr class="my-2">
-    <form class="form-horizontal row" action="index.php?action=103" method="post">
+    <form class="form-horizontal row" action="index.php?page=2&action=3" method="post">
         <div class="col-md-12">
             <div class="form-group">
                 <label class="col-md-4 control-label" for="us">Username</label>

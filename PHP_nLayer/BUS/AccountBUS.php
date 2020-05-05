@@ -62,4 +62,19 @@ class AccountBUS {
                 return null;
         }
     }
+
+    public function register($account)
+    {
+        $acc = $this->accountDAO->checkAccountExist($account->username);
+        if($acc != null)
+            return false;
+        else
+        {
+            $password = $account->password;
+            $account->password = password_hash($account->password, PASSWORD_DEFAULT);
+            $this->accountDAO->Insert($account);
+            
+            return $this->login($account->username, $password);
+        }
+    }
 }
