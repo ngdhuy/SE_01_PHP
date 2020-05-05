@@ -30,7 +30,7 @@ class PostDAO extends Database{
             $post->acc_id = $obj->acc_id;
             $post->post_content = $obj->post_content;
             $post->created_at = $obj->created_at;
-            $post->updated_at = $obj->updated_a;
+            $post->updated_at = $obj->updated_at;
 
             $posts[] = $post;
         }

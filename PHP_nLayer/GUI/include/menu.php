@@ -7,7 +7,7 @@
         {
             ?>
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php?page=5">Post</span></a>
+                    <a class="nav-link" href="index.php?page=3">Post</span></a>
                 </li>
             <?php
         }
