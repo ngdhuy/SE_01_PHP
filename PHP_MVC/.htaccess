@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteEngine ^([a-zA-Z0-9\-\_\/]*)$ public/$1
+RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
