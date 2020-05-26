@@ -1,6 +1,8 @@
 <?php
-    class Model
-    {
-        // abstract code of model here      
-    }
+namespace core;
+
+class Model
+{
+    // abstract code of model here      
+}
 ?>

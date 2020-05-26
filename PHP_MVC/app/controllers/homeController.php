@@ -1,16 +1,15 @@
 <?php
+    use model\Account;
+    use bus\AccountBUS;
+
     class homeController extends Controller
     {
         function index()
         {
-            $this->render("index");
-        }
-
-        function show()
-        {
-            $d['data'] = "Test page";
+            $accBUS = new AccountBUS();
+            $d["accounts"] = $accBUS->getAll();
             $this->set($d);
-            $this->render("show");
+            $this->render("index");
         }
     }
 ?>
