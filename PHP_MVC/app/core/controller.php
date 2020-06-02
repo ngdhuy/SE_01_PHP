@@ -26,6 +26,22 @@
             }
         }
 
+        public function redirectToAction($controller, $action = null)
+        {
+            if($action == null)
+                $action = "index";
+            
+            header("location:".WEBROOT."$controller/$action");
+        }
+
+        public function redirectToErrorAction($errorID)
+        {
+            $controller = "error";
+            $action = "showError";
+            
+            header("location:".WEBROOT."$controller/$action/$errorID");
+        }
+
         private function secure_input($data)
         {
             $data = trim($data);

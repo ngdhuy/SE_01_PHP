@@ -1,7 +1,11 @@
-<h1>List of Account</h1>
-<ul>
-    <?php
-        foreach($accounts as $acc)
-            echo "<li>$acc->display_name</li>";
-    ?>
-</ul>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3">Fluid jumbo heading</h1>
+        <p class="lead">Jumbo helper text</p>
+        <hr class="my-2">
+        <p>More info</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+        </p>
+    </div>
+</div>
