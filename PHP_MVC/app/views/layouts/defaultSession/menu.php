@@ -7,7 +7,7 @@
         {
             ?>
                 <li class="nav-item active">
-                    <a class="nav-link" href="post">Posts</span></a>
+                    <a class="nav-link" href="<?php echo Helpers::redirect("post"); ?>">Posts</span></a>
                 </li>
             <?php
         }

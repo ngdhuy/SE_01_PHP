@@ -27,4 +27,9 @@ class Comment extends Model{
     public function __get($name){
         return (isset($this->$name)) ? $this->$name : null;
     }
+
+    public function __isset($name)
+    {
+        return (isset($this->$name)) ? true : false;
+    }
 }

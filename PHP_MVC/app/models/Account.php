@@ -32,5 +32,10 @@ class Account extends Model {
     {
         return (isset($this->$name)) ? $this->$name : null;
     }
+
+    public function __isset($name)
+    {
+        return (isset($this->$name)) ? true : false;
+    }
 }
 ?>

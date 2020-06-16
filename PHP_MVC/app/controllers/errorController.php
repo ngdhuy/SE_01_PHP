@@ -25,6 +25,9 @@
                 case 6:
                     $errorMessage = "Cannot create new Comment. Please, try again later!";
                     break;
+                case 7:
+                    $errorMessage = "Permission deny";
+                    break;
                 default:
                     $errorMessage = "404 - Page not found";
             }

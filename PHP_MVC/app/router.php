@@ -10,7 +10,7 @@
         {
             $url = trim($url);
             
-            if($url == "/PHP_MVC/")
+            if(strtolower($url) == "/php_mvc/")
             {
                 $request->controller = "home";
                 $request->action = "index";

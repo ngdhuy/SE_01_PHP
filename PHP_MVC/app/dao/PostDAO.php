@@ -14,7 +14,7 @@ class PostDAO extends Database{
     }   
 
     public function getAll(){
-        $query = "SELECT post_id, acc_id, post_content, created_at, updated_at FROM post";
+        $query = "SELECT post_id, acc_id, post_content, created_at, updated_at FROM post ORDER BY created_at DESC";
         $this->query($query);
         $objects = $this->resultObjects();
 

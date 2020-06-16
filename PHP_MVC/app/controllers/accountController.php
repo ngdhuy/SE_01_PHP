@@ -30,6 +30,41 @@
             }
         }
 
+        function exSignUp()
+        {
+            if(isset($_POST['us']) && isset($_POST['pw']) && isset($_POST['dn']) && isset($_POST['email']))
+            {
+                $us = $_POST['us'];
+                $pw = $_POST['pw'];
+                $dn = $_POST['dn'];
+                $email = $_POST['email'];
+
+                $account = new Account();
+                $account->username = $us; 
+                $account->password = $pw;
+                $account->display_name = $dn; 
+                $account->email = $email;
+
+                $accountBUS = new AccountBUS();
+                
+                $acc = $accountBUS->register($account);
+
+                if($acc == false)
+                    $this->redirectToErrorAction("3");
+                else if ($acc == null)
+                    $this->redirectToErrorAction("4");
+                else
+                {
+                    $_SESSION["account"] = serialize($acc);
+                    $this->redirectToAction("home");
+                }
+            }
+            else
+            {
+                $this->redirectToErrorAction("4");
+            }
+        }
+
         function signOut()
         {
             session_destroy();

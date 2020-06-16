@@ -14,7 +14,7 @@ class CommentDAO extends Database{
     }   
 
     public function getAll(){
-        $query = "SELECT `comment_id`, `comment_content`, `post_id`, `acc_id`, `created_at`, `updated_at` FROM `comment`";
+        $query = "SELECT `comment_id`, `comment_content`, `post_id`, `acc_id`, `created_at`, `updated_at` FROM `comment` ORDER BY created_at";
         $this->query($query);
         $objects = $this->resultObjects();
         
